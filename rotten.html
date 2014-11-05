@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+</style>
+</head>
+
+<body>
+<form action="" id="new-thing">
+	<div id="nameBox"><p>Movie Name</p><input type="text" id="search-term" ></div>
+	
+	<input type="submit" value="Search">
+
+</form>
+
+<div id="results"></div>
+
+
+
+<script type="template" id="page-template"> <!--//dont put text/javascript put template-->
+	<img src="{{posters.thumbnail}}"/>
+	<h1>{{title}}</h1>
+    <p>{{movieLength}}</p>
+	<p>Audience Rating: {{ratings.audience_rating}} </p> <!--//what goes inside are the property names that is seen through API -->
+	<p>Audience Score: {{ratings.audience_score}} </p>
+	<p>Cast:</p>{{#each abridged_cast}}
+	<p>{{name}}</p> 
+	{{/each}}
+	
+
+	{{#if synopsis}}
+	<p>{{synopsis}}</p>
+	{{else}}
+		<p>No synopsis available. </p>
+	{{/if}}
+
+</script> <!--making the template-->
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<script type="text/javascript" src="underscore.js"></script>
+<script type="text/javascript" src="backbone.js"></script>
+<script type="text/javascript" src="handlebars.js"></script>
+<script type="text/javascript" src="rotten-graph.js"></script>
+
+</body>
+</html>
